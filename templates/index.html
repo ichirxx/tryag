@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CHRX Account Creator</title>
+    <style>body{background:#1a1a1a;color:#fff;font-family:sans-serif;padding:20px;}.box{max-width:600px;margin:auto;}</style>
+</head>
+<body>
+<div class="box">
+    <h2>Facebook Account Creator</h2>
+    <label>Number of Accounts:</label>
+    <input type="number" id="num" value="1" min="1" max="5"><br><br>
+    <button id="start" style="background:#2563eb;padding:10px 20px;border:none;border-radius:5px;color:white;">START CREATION</button>
+    <div id="log" style="margin-top:20px;background:#222;padding:15px;border-radius:5px;"></div>
+</div>
+<script>
+document.getElementById('start').onclick=async()=>{
+    let num = document.getElementById('num').value;
+    let log = document.getElementById('log');
+    log.innerHTML = "Starting...<br>";
+    let res = await fetch('/create', {method:'POST',body:new FormData(document.createElement('form'))});
+    let data = await res.json();
+    data.forEach(d=>{
+        log.innerHTML += `✅ ${d.email} | Pass: ${d.pass} | Code: ${d.code}<br>`;
+    });
+};
+</script>
+</body>
+</html>
