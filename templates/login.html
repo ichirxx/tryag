@@ -368,8 +368,8 @@
 
 <div class="card">
   <div class="logo">
-    <div class="logo-icon">W</div>
-    <div class="logo-name">WEYN</div>
+    <div class="logo-icon">C</div>
+    <div class="logo-name">CHRX</div>
     <div class="logo-sub">Facebook Account Creator</div>
   </div>
 
@@ -397,7 +397,7 @@
       <div style="display:flex;flex-direction:column;gap:14px;">
         <div>
           <label class="field-label">Your Name</label>
-          <input type="text" id="reqName" placeholder="e.g. Juan Dela Cruz"
+          <input type="text" id="reqName" placeholder="e.g. Kenzo Dela Cruz"
                  onkeydown="if(event.key==='Enter') generateKey()">
         </div>
         <div>
@@ -446,7 +446,7 @@
   <div class="panel" id="panel-login">
     <div>
       <label class="field-label">Access Key</label>
-      <input type="text" id="keyInput" placeholder="WEYN-XXXX-XXXX-XXXX-XXXX"
+      <input type="text" id="keyInput" placeholder="CHRX-XXXX-XXXX-XXXX-XXXX"
              oninput="this.value=this.value.toUpperCase()"
              onkeydown="if(event.key==='Enter') verifyKey()">
     </div>
@@ -587,7 +587,7 @@ function startPolling(key) {
           });
           const vd = await vr.json();
           if (vd.status === 'approved') {
-            localStorage.setItem('weyn_key', key);
+            localStorage.setItem('chrx_key', key);
             window.location.href = '/';
           } else {
             wm.className = 'msg msg-error show';
@@ -639,7 +639,7 @@ function copyKey() {
 }
 
 async function _tryAutoLogin() {
-  const saved = localStorage.getItem('weyn_key');
+  const saved = localStorage.getItem('chrx_key');
   if (!saved) return;
   try {
     const r = await fetch('/verify-key', {
@@ -651,13 +651,13 @@ async function _tryAutoLogin() {
     if (d.status === 'approved') {
       window.location.href = '/';
     } else if (d.status === 'already_used') {
-      localStorage.removeItem('weyn_key');
+      localStorage.removeItem('chrx_key');
     } else if (d.status === 'ip_mismatch') {
-      localStorage.removeItem('weyn_key');
+      localStorage.removeItem('chrx_key');
       switchTab('login');
       showMsg('loginMsg', '🔒 This key is locked to another device/IP. Contact admin to reset it.', 'error');
     } else if (d.status === 'rejected' || d.status === 'revoked' || d.status === 'invalid') {
-      localStorage.removeItem('weyn_key');
+      localStorage.removeItem('chrx_key');
     }
   } catch(e) {}
 }
@@ -682,19 +682,19 @@ async function verifyKey() {
     const d = await r.json();
 
     if (d.status === 'approved') {
-      localStorage.setItem('weyn_key', key);
+      localStorage.setItem('chrx_key', key);
       showMsg('loginMsg', `✓ Welcome, ${d.name}!`, 'success');
       setTimeout(() => window.location.href = '/', 800);
     } else if (d.status === 'already_used') {
-      localStorage.removeItem('weyn_key');
+      localStorage.removeItem('chrx_key');
       showMsg('loginMsg', '🔒 This key has already been used on another device and cannot be reused. Contact admin for a new key.', 'error');
     } else if (d.status === 'pending') {
       showMsg('loginMsg', '⏳ Your key is still pending admin approval.', 'warn');
     } else if (d.status === 'rejected') {
-      localStorage.removeItem('weyn_key');
+      localStorage.removeItem('chrx_key');
       showMsg('loginMsg', '❌ This key has been rejected. Contact admin.', 'error');
     } else if (d.status === 'revoked') {
-      localStorage.removeItem('weyn_key');
+      localStorage.removeItem('chrx_key');
       showMsg('loginMsg', '🚫 This key has been revoked. Contact admin.', 'error');
     } else if (d.status === 'ip_mismatch') {
       showMsg('loginMsg', '🔒 This key is already locked to another device/IP. Contact admin to reset it.', 'error');
