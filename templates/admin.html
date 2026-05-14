@@ -34,11 +34,11 @@
 
   .logo-mark {
     width: 34px; height: 34px;
-    background: linear-gradient(135deg, #f59e0b, #d97706);
+    background: linear-gradient(135deg, #165DFF, #0066ff);
     border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
     font-size: 15px; font-weight: 800; color: #000;
-    box-shadow: 0 0 0 4px rgba(245,158,11,0.1), 0 4px 16px rgba(245,158,11,0.3);
+    box-shadow: 0 0 4px rgba(22, 93, 255, 0.4);
     flex-shrink: 0;
   }
 
@@ -46,7 +46,7 @@
   .logo-sep { width: 1px; height: 18px; background: rgba(255,255,255,0.07); margin: 0 4px; }
   .admin-badge {
     font-size: 10px; font-weight: 700; color: #f59e0b;
-    background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25);
+    background: rgba(22, 93, 255, 0.1);
     border-radius: 8px; padding: 3px 10px; letter-spacing: 0.8px;
   }
 
@@ -447,9 +447,9 @@
     font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 600;
     cursor: pointer; letter-spacing: -0.1px; width: 100%; transition: all .2s;
   }
-  .cr-btn-start { background: linear-gradient(135deg,#60a5fa,#3b82f6); color: #fff; box-shadow: 0 4px 16px rgba(96,165,250,0.25); }
+  .cr-btn-start { background: linear-gradient(135deg, #165DFF, #0066ff);
   .cr-btn-start:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(96,165,250,0.35); }
-  .cr-btn-start:disabled { background: rgba(96,165,250,0.1); color: rgba(96,165,250,0.25); cursor: not-allowed; box-shadow: none; transform: none; }
+  .cr-btn-start:disabled { background: rgba(22, 93, 255, 0.3);
   .cr-btn-stop { background: transparent; border: 1px solid rgba(239,68,68,0.25); color: #f87171; }
   .cr-btn-stop:hover:not(:disabled) { background: rgba(239,68,68,0.08); }
   .cr-btn-stop:disabled { opacity: 0.25; cursor: not-allowed; }
@@ -458,11 +458,11 @@
 
   .c-copy-btn {
     background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 6px; color: #334155; cursor: pointer; padding: 3px 9px;
+    border-radius: 6px; color: #165DFF; cursor: pointer; padding: 3px 9px;
     font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 500;
     transition: all .15s; flex-shrink: 0;
   }
-  .c-copy-btn:hover { color: #00e676; border-color: rgba(0,230,118,0.3); background: rgba(0,230,118,0.06); }
+  .c-copy-btn:hover { color: #165DFF; border-color: rgba(0,230,118,0.3); background: rgba(0,230,118,0.06); }
 
   @media (max-width: 768px) {
     .cr-container { grid-template-columns: 1fr; height: auto; overflow-y: auto; }
